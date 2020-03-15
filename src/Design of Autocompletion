@@ -1,0 +1,20 @@
+Design of Autocompletion
+
+My program has two main classes Trie and AutoCompleteTests, one is responsible for providing the
+words that must be sorted in the Trie tree data structure and then compared to an expected list of
+strings, when the prefix word returns with matches (AutoCompleteTests class). Within the Trie class
+a separate public class “TrieNode” is added to traverse through the tree and add the characters where
+they belong and get their children when necessary. The class constructer for Trie accepts a
+String list and with it builds the Trie tree from it by calling the insert within it. The insert
+function is the first function in the Trie class and is in charge of getting a string word from
+the list and iterating through each character within it, if the character doesn’t exist in the
+Trie then it adds it, otherwise it locates where it is and adds it to the end checking if it’s
+the end of the word or not. The seconds function and probably the most complex is the search, because
+after receiving the prefix of what it’s looking for it has to travers through the correct path and each
+time it goes to the end of the prefix it has to find all the given words connected to it and adds them
+to the list. This task is performed in a helper function that once the prefix reaches its end it calls
+the helper function with the argument’s location of current node and String list and goes through each
+branch until there are no more words connected to it. In Big O notation I’d say the complexity of this
+program is O(c*k) as it’s dependent on how many words begin with the chosen prefix, therefore c would be
+the number of solutions possible and the size of the given dictionary would be k, but because the sample
+size is small the complexity is fairly low.
